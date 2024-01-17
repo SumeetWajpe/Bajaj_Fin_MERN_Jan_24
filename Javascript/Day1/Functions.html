@@ -8,11 +8,13 @@
       var s = "jldfgjdfgn";
 
       // Function declaration syntax
-        function Add(x, y) {
-          x = x || 0;
-          y = y || 0;
-          return x + y;
-        }
+      //   console.log(Add(20, 30));
+
+      //   function Add(x, y) {
+      //     x = x || 0;
+      //     y = y || 0;
+      //     return x + y;
+      //   }
       //   //   console.log(Add(20, 30));
       //   console.log(Add());
 
@@ -57,15 +59,16 @@
 
       //2. Function as an expression
 
-      //   var Add = function (x, y) {
-      //     return x + y;
-      //   };
-      //   console.log(Add(30, 50));
+      console.log(Add(30, 50));
+
+      var Add = function (x, y) {
+        return x + y;
+      };
 
       // 3. Function Constructor
 
-      var Add = new Function("x", "y", "return x + y");
-      console.log(Add(30, 50));
+      //   var Add = new Function("x", "y", "return x + y");
+      //   console.log(Add(30, 50));
     </script>
   </head>
   <body></body>
