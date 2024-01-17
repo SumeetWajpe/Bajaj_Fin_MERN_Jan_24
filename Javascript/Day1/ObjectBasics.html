@@ -16,13 +16,32 @@
         },
       };
 
-      player.getDetails();
+      //   player.getDetails();
 
-      var playerJSON = JSON.stringify(player);
-      // console.log(playerJSON); // converts jsobject to JSON
+      //   var playerJSON = JSON.stringify(player);
+      //   // console.log(playerJSON); // converts jsobject to JSON
 
-      var jsObject = JSON.parse(playerJSON); // converts JSON to js object
-      console.log(jsObject.name);
+      //   var jsObject = JSON.parse(playerJSON); // converts JSON to js object
+      //   console.log(jsObject.name);
+
+      // 2. using Object Constructor
+      //   var obj = new Object();
+      //   obj.xyz = 123;
+      //   obj.pqr = 456;
+      //   obj.getDetails = function () {};
+
+      // 3. using Custom Constructor
+
+      function Car() {
+        this.name = "BMW";
+        this.speed = 200;
+        this.accelerate = function () {
+          console.log(this.name + " is running @ " + this.speed + " kmph !");
+        };
+      }
+
+      var carObj = new Car();
+      carObj.accelerate();
     </script>
   </head>
   <body></body>
