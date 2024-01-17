@@ -14,16 +14,45 @@
       //   console.log(Add(20, 30));
       console.log(Add());
 
-      function Outer() {
-        var x = 100;
+      //   function Outer() {
+      //     var x = 100;
 
-        function Inner() {
+      //     function Inner() {
+      //       console.log(x);
+      //     }
+      //     Inner();
+      //   }
+
+      //   Outer();
+
+      // Function returning a function
+
+      function Outer() {
+        console.log("Within Outer !");
+        var x = 1000;
+        return function () {
+          console.log("Within Inner  !");
           console.log(x);
-        }
-        Inner();
+        };
+      }
+      var InnerFunc = Outer();
+      // 100 lines of code
+      InnerFunc();
+
+      function Counter() {
+        var count = 10;
+        return function () {
+          console.log(count++);
+        };
       }
 
-      Outer();
+      var theCounter = Counter();
+      theCounter();
+      theCounter();
+      theCounter();
+      theCounter();
+      theCounter();
+
     </script>
   </head>
   <body></body>
