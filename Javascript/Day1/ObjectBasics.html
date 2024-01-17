@@ -17,6 +17,12 @@
       };
 
       player.getDetails();
+
+      var playerJSON = JSON.stringify(player);
+      // console.log(playerJSON); // converts jsobject to JSON
+
+      var jsObject = JSON.parse(playerJSON); // converts JSON to js object
+      console.log(jsObject.name);
     </script>
   </head>
   <body></body>
