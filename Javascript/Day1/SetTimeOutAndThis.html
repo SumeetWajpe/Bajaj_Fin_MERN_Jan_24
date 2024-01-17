@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script>
+      function GetSalary() {
+        console.log(this.salary);
+      }
       function Emp() {
-        var _this = this;
         this.salary = 200000;
-        setTimeout(function () {
-          console.log(_this.salary);
-        }, 2000);
+        setTimeout(
+          function GetSalary() {
+            console.log(this.salary);
+          }.bind(this),
+          2000,
+        );
       }
       console.log("Start");
       var emp = new Emp();
