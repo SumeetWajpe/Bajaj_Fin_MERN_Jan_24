@@ -12,11 +12,24 @@
         },
       };
 
-      person.greet("Hey");
+      // person.greet("Hey");
 
       var anotherPerson = { name: "Amit" };
 
-      person.greet.call(anotherPerson, "Hello");
+      // invoke greet on anotherPerson (context)
+      // person.greet.call(anotherPerson, "Hello");
+      // person.greet.apply(anotherPerson, ["Hi"]);
+      // bind
+      var greetMethodBindedWithAnotherPerson = person.greet.bind(anotherPerson);
+      // 100 lines
+      greetMethodBindedWithAnotherPerson("Hola");
+
+      function Test() {
+        console.log(this);
+      }
+      Test();
+
+      var x = 10;
     </script>
   </head>
   <body></body>
