@@ -6,13 +6,15 @@
     <title>Document</title>
     <script>
       var s = "jldfgjdfgn";
-      function Add(x, y) {
-        x = x || 0;
-        y = y || 0;
-        return x + y;
-      }
-      //   console.log(Add(20, 30));
-      console.log(Add());
+
+      // Function declaration syntax
+      //   function Add(x, y) {
+      //     x = x || 0;
+      //     y = y || 0;
+      //     return x + y;
+      //   }
+      //   //   console.log(Add(20, 30));
+      //   console.log(Add());
 
       //   function Outer() {
       //     var x = 100;
@@ -27,32 +29,42 @@
 
       // Function returning a function
 
-      function Outer() {
-        console.log("Within Outer !");
-        var x = 1000;
-        return function () {
-          console.log("Within Inner  !");
-          console.log(x);
-        };
-      }
-      var InnerFunc = Outer();
-      // 100 lines of code
-      InnerFunc();
+      //   function Outer() {
+      //     console.log("Within Outer !");
+      //     var x = 1000;
+      //     return function () {
+      //       console.log("Within Inner  !");
+      //       console.log(x);
+      //     };
+      //   }
+      //   var InnerFunc = Outer();
+      //   // 100 lines of code
+      //   InnerFunc();
 
-      function Counter() {
-        var count = 10;
-        return function () {
-          console.log(count++);
-        };
-      }
+      //   function Counter() {
+      //     var count = 10;
+      //     return function () {
+      //       console.log(count++);
+      //     };
+      //   }
 
-      var theCounter = Counter();
-      theCounter();
-      theCounter();
-      theCounter();
-      theCounter();
-      theCounter();
+      //   var theCounter = Counter();
+      //   theCounter();
+      //   theCounter();
+      //   theCounter();
+      //   theCounter();
+      //   theCounter();
 
+      //2. Function as an expression
+
+      var Add = function (x, y) {
+        return x + y;
+      };
+      console.log(Add(30, 50));
+
+      // 3. Function Constructor
+
+      
     </script>
   </head>
   <body></body>
