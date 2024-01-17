@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var s = "jldfgjdfgn";
+      function Add(x, y) {
+        x = x || 0;
+        y = y || 0;
+        return x + y;
+      }
+      //   console.log(Add(20, 30));
+      console.log(Add());
+
+      function Outer() {
+        var x = 100;
+
+        function Inner() {
+          console.log(x);
+        }
+        Inner();
+      }
+
+      Outer();
+    </script>
+  </head>
+  <body></body>
+</html>
