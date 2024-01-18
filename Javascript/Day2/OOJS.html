@@ -20,6 +20,20 @@
 
       var person = { name: "Djokovic", country: "Serbia" };
       var player = Object.create(person);
+      player.name = "Alcaraz";
+      person.name = "XYZ";
+
+      //using prototypical inheritance with custom constructor
+
+      function Car() {
+        this.name = "BMW";
+        this.speed = 200;
+        this.accelerate = function () {
+          console.log(
+            "The car " + this.name + " is running @ " + this.speed + " kmph !",
+          );
+        };
+      }
     </script>
   </head>
   <body></body>
