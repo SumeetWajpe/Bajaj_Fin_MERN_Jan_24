@@ -8,9 +8,15 @@
       function Add() {
         let firstnum = document.getElementById("txtNumOne").value;
         let secondnum = document.getElementById("txtNumTwo").value;
-        let sum = parseInt(firstnum) + parseInt(secondnum);
-        let divResult = document.getElementById("result");
-        divResult.innerHTML = "<strong> Result : " + sum + "</strong>";
+        if (firstnum == "") {
+          let errorDiv = document.getElementById("error");
+          errorDiv.innerText = "Number1 is required !";
+          errorDiv.style.color = "red";
+        } else {
+          let sum = parseInt(firstnum) + parseInt(secondnum);
+          let divResult = document.getElementById("result");
+          divResult.innerHTML = "<strong> Result : " + sum + "</strong>";
+        }
       }
     </script>
   </head>
@@ -24,6 +30,8 @@
     <br />
     <input type="button" value="Add" onclick="Add()" />
     <br />
+
     <div id="result"></div>
+    <div id="error"></div>
   </body>
 </html>
