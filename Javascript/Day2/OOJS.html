@@ -34,6 +34,31 @@
           );
         };
       }
+
+      var carObj = new Car();
+
+      function JamesBondCar() {
+        this.isArmed = false;
+        this.canUseNitroPower = true;
+      }
+
+      JamesBondCar.prototype = new Car();
+      var jbc = new JamesBondCar();
+
+      // using proto inh to extends default objects
+
+      Date.prototype.getDayName = function () {
+        switch (this.getDay()) {
+          case 4:
+            return "Friday";
+
+          default:
+            break;
+        }
+      };
+
+      var date = new Date();
+      console.log(date.getDayName());
     </script>
   </head>
   <body></body>
