@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function Initialize() {
+        // var divElement = document.getElementById("firstDiv");
+        // divElement.innerText = "Dynamic text !";
+        // divElement.style.border = "2px dashed red";
+
+        let divs = document.getElementsByTagName("div");
+        // console.log(divs.length);
+        for (let index = 0; index < divs.length; index++) {
+          console.log(divs[index].innerText);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="firstDiv">Learning DOM !</div>
+    <div>Second Div !</div>
+    <div>Third Div !</div>
+    <input type="button" onclick="Initialize()" value="Click Me !" />
+  </body>
+</html>
