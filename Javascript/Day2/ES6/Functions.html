@@ -41,14 +41,32 @@
 
       // OR
 
-      var Add = (x, y) => x + y;
-      console.log(Add(20, 30));
+      //   var Add = (x, y) => x + y;
+      //   console.log(Add(20, 30));
 
-      setTimeout(function () {
-        console.log("Called after 2 seconds !");
-      }, 2000);
+      //   setTimeout(function () {
+      //     console.log("Called after 2 seconds !");
+      //   }, 2000);
 
-      setTimeout(() => console.log("Printed after 2 seconds !"), 2000);
+      //   setTimeout(() => console.log("Printed after 2 seconds !"), 2000);
+
+      //   var companies = ["IBM", "Google", "Microsoft"];
+      //   companies.forEach(function (c) {
+      //     console.log(c);
+      //   });
+      //   // OR
+      //   companies.forEach(c => console.log(c));
+
+      function Emp() {
+        this.salary = 200000;
+        setTimeout(() => {
+          console.log(this);
+        }, 2000);
+      }
+
+      var emp = new Emp();
+
+      // OR
     </script>
   </head>
   <body></body>
