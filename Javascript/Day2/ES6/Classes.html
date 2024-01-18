@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      class Car {
+        constructor(name = "BMW", speed = 200) {
+          this.name = name;
+          this.speed = speed;
+        }
+        accelerate() {
+          return (
+            " The car " + this.name + " is running @ " + this.speed + " kmph !"
+          );
+        }
+      }
+
+      //   var carObj = new Car("Aston Martin", 300);
+      //   console.log(carObj.accelerate());
+
+      class JamesBondCar extends Car {
+        isArmed = true;
+        accelerate() {
+          return super.accelerate() + " Is it armed ?" + this.isArmed;
+        }
+      }
+      var jbc = new JamesBondCar();
+      console.log(jbc.accelerate());
+    </script>
+  </head>
+  <body></body>
+</html>
