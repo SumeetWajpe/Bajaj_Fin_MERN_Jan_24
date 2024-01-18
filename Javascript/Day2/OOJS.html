@@ -43,22 +43,32 @@
       }
 
       JamesBondCar.prototype = new Car();
+      JamesBondCar.prototype.accelerate = function () {
+        console.log("JBC accelerate()");
+      };
       var jbc = new JamesBondCar();
+      // Not overriding (local method)
+      //   jbc.accelerate = function () {
+      //     console.log("JBC Accelerate !");
+      //   };
 
       // using proto inh to extends default objects
 
-      Date.prototype.getDayName = function () {
-        switch (this.getDay()) {
-          case 4:
-            return "Friday";
+      //   Date.prototype.getDayName = function () {
+      //     switch (this.getDay()) {
+      //       case 4:
+      //         return "Friday";
 
-          default:
-            break;
-        }
-      };
+      //       default:
+      //         break;
+      //     }
+      //   };
 
-      var date = new Date();
-      console.log(date.getDayName());
+      //   var date = new Date();
+      //   console.log(date.getDayName());
+
+      // Object.getPrototypeOf(jbc);
+      // jbc.hasOwnProperty("name");
     </script>
   </head>
   <body></body>
