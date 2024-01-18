@@ -5,14 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script>
-      function Test() {
-        if (true) {
-          let x = 10;
-          console.log(x); // 10
-        }
-        // console.log(x); // Error !
-      }
-      Test();
+      //   function Test() {
+      //     if (true) {
+      //       let x = 10;
+      //       console.log(x); // 10
+
+      //       // 100 lines of code
+      //       //   let x = 2000;// Error
+      //     }
+      //     // console.log(x); // Error !
+      //   }
+      //   Test();
+
+      //   let x;
+      //   x = 10000;
+
+      // const
+
+      //   const PI = 31.4;
+      //   PI = 3.12322; // const cant be changed
+
+      //   const player = { name: "Djokovic", country: "Serbia" };
+      //   player.country = "France"; // allowed
+      //   player.sport = "Tennis"; // allowed
+      //player = {}; // Error ! Reassigning to a newer object is an error !
+
+      // Spread Operator - Arrays & Objects
+
+      // With Arrays
+      var cars = ["BMW", "AUDI", "MERC"];
+      var moreCars = ["TATA", "Maruti"];
+      var allCars = [...cars, ...moreCars];
+
+      // With Objects
+
+      var person = { name: "Djokovic", country: "Serbia" };
+      var player = { sport: "Tennis", country: "XYZ", ...person };
+    
+    
     </script>
   </head>
   <body></body>
