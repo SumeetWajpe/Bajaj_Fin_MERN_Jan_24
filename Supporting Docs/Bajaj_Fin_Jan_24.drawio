@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-01-19T05:58:49.000Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="yT5tbiMYXIYv83AqWcnj" version="22.1.21" type="device">
+<mxfile host="app.diagrams.net" modified="2024-01-19T09:29:30.934Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="FNUWoxflQONmhx158gC7" version="22.1.21" type="device">
   <diagram name="Page-1" id="FT2DKe5T_E51LZx3Picg">
-    <mxGraphModel dx="2153" dy="366" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="#FFF2CC" math="0" shadow="0">
+    <mxGraphModel dx="2553" dy="366" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="#FFF2CC" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -177,6 +177,43 @@
         </mxCell>
         <mxCell id="eKVK3JCVfYValQsUJ80_-28" value="3. send() - actually places the call (async)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="eKVK3JCVfYValQsUJ80_-25">
           <mxGeometry y="90" width="310" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eKVK3JCVfYValQsUJ80_-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eKVK3JCVfYValQsUJ80_-30" target="eKVK3JCVfYValQsUJ80_-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eKVK3JCVfYValQsUJ80_-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eKVK3JCVfYValQsUJ80_-30" target="eKVK3JCVfYValQsUJ80_-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eKVK3JCVfYValQsUJ80_-30" value="html" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-1630" y="1360" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eKVK3JCVfYValQsUJ80_-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=-0.001;exitY=0.847;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="eKVK3JCVfYValQsUJ80_-31">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-1430" y="1410" as="sourcePoint" />
+            <mxPoint x="-1510" y="1410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eKVK3JCVfYValQsUJ80_-34" value="a new Promise()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="eKVK3JCVfYValQsUJ80_-33">
+          <mxGeometry x="0.2276" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eKVK3JCVfYValQsUJ80_-38" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eKVK3JCVfYValQsUJ80_-31" target="eKVK3JCVfYValQsUJ80_-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eKVK3JCVfYValQsUJ80_-39" value="XHR" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="eKVK3JCVfYValQsUJ80_-38">
+          <mxGeometry x="0.0344" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eKVK3JCVfYValQsUJ80_-31" value="js (GetData())" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-1380" y="1350" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eKVK3JCVfYValQsUJ80_-35" value=".then(successcbk,rejectcbk)" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-1630" y="1500" width="210" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eKVK3JCVfYValQsUJ80_-37" value="Server" style="whiteSpace=wrap;html=1;rounded=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="-1170" y="1370" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="getdata.js"></script>
+    <script>
+      let promise = GetData();
+      promise.then(
+        function (responseposts) {
+          let posts = JSON.parse(responseposts);
+          let postsList = document.getElementById("postList");
+          for (let index = 0; index < posts.length; index++) {
+            let newLi = document.createElement("li");
+            newLi.setAttribute(
+              "style",
+              "border:1px solid black;margin:5px;padding:5px",
+            );
+            newLi.innerText = posts[index].title;
+            postsList.appendChild(newLi);
+          }
+        },
+        function (err) {
+          console.log(err);
+        },
+      );
+    </script>
+  </head>
+  <body>
+    <ul id="postList"></ul>
+  </body>
+</html>
