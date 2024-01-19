@@ -5,16 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script>
-      function AddNewButton() {
+      function AddNewTextbox() {
         let containerDiv = document.getElementById("container");
         let newTxtBox = document.createElement("input");
+        newTxtBox.addEventListener("input", function (e) {
+          console.log(e.target.value);
+        });
         newTxtBox.setAttribute("type", "text");
+        newTxtBox.setAttribute("id", "targetTxtBox");
+        newTxtBox.setAttribute("style", "border:2px solid red");
         containerDiv.appendChild(newTxtBox);
+      }
+
+      function RemoveTextbox() {
+        let txtBoxToBeDeleted = document.getElementById("targetTxtBox");
+        let containerDiv = document.getElementById("container");
+        containerDiv.removeChild(txtBoxToBeDeleted);
       }
     </script>
   </head>
   <body>
     <div id="container"></div>
-    <input type="button" value="Add a new textbox !" onclick="AddNewButton()" />
+    <input
+      type="button"
+      value="Add a new textbox !"
+      onclick="AddNewTextbox()"
+    />
+    <input type="button" value="Remove a textbox !" onclick="RemoveTextbox()" />
   </body>
 </html>
