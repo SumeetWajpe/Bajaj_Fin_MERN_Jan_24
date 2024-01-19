@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function Handler() {
+        console.log("U Clicked the target button !");
+      }
+      function AddListenerToTarget() {
+        let btnTarget = document.getElementById("btnTarget");
+        btnTarget.addEventListener("click", Handler);
+      }
+
+      function RemoveEventListenerFromTarget() {
+        let btnTarget = document.getElementById("btnTarget");
+        btnTarget.removeEventListener("click", Handler);
+      }
+    </script>
+  </head>
+  <body>
+    <input
+      type="button"
+      value="Add Event Listener"
+      onclick="AddListenerToTarget()"
+    />
+    <input type="button" id="btnTarget" value="Target" />
+    <input
+      type="button"
+      value="Remove Event Listener"
+      onclick="RemoveEventListenerFromTarget()"
+    />
+  </body>
+</html>
