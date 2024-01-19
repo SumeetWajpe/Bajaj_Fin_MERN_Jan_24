@@ -7,11 +7,28 @@
     <script src="getdata.js"></script>
     <script>
       console.log("Start");
-      GetData(function (responseposts) {
-        console.log(responseposts);
+      GetData(function (err, responseposts) {
+        // convert into js array
+        if (!err) {
+          let posts = JSON.parse(responseposts);
+          let postsList = document.getElementById("postList");
+          for (let index = 0; index < posts.length; index++) {
+            let newLi = document.createElement("li");
+            newLi.setAttribute(
+              "style",
+              "border:1px solid black;margin:5px;padding:5px",
+            );
+            newLi.innerText = posts[index].title;
+            postsList.appendChild(newLi);
+          }
+        } else {
+          console.log(err);
+        }
       });
       console.log("End");
     </script>
   </head>
-  <body></body>
+  <body>
+    <ul id="postList"></ul>
+  </body>
 </html>
