@@ -33,16 +33,34 @@
       // Spread Operator - Arrays & Objects
 
       // With Arrays
+      // var cars = ["BMW", "AUDI", "MERC"];
+      // var moreCars = ["TATA", "Maruti"];
+      // var allCars = [...cars, ...moreCars];
+
+      // // With Objects
+
+      // var person = { name: "Djokovic", country: "Serbia" };
+      // var player = { sport: "Tennis", country: "XYZ", ...person };
+
+      // Destructuring - Arrays & Objects
       var cars = ["BMW", "AUDI", "MERC"];
-      var moreCars = ["TATA", "Maruti"];
-      var allCars = [...cars, ...moreCars];
+      // let firstCar = cars[0];
+      // let secondCar = cars[1];
 
-      // With Objects
+      // OR
 
-      var person = { name: "Djokovic", country: "Serbia" };
-      var player = { sport: "Tennis", country: "XYZ", ...person };
-    
-    
+      // let [firstCar, , secondCar, thirdCar = "Unknown"] = [
+      //   "BMW",
+      //   "AUDI",
+      //   "MERC",
+      // ];
+
+      var person = { lastname: "Djokovic", country: "Serbia" };
+      // let lastname = person.lastname;
+      // let country = person.country;
+
+      // OR
+      let { country, lastname: name, sport = "Tennis" } = person;
     </script>
   </head>
   <body></body>
