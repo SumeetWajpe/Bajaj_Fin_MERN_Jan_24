@@ -6,20 +6,24 @@
     <title>Document</title>
     <style>
       /* Selectors - Element/Tag , Class , id*/
-      input[type="text"] {
+      /* input[type="text"] {
         border: 2px solid green;
+      } */
+      .styled {
+        background-color: lightgreen;
       }
       .even {
-        border: 1px solid rgb(121, 247, 137);
-        background-color: lightblue;
+        border: 1px solid lightcoral;
+        background-color: rgba(255, 100, 10, 0.3);
       }
+
       #first {
         border: 2px dashed blue;
       }
     </style>
   </head>
   <body>
-    <input type="text" id="first" class="even" />
+    <input type="text" class="even styled" />
     <input type="text" />
     <input type="text" />
     <input type="button" value="Button !" />
