@@ -5,16 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      p:first-child {
+      /* div > p:first-child {
+        border: 1px solid blue;
+      } */
+      /* p:last-child {
+        border: 1px solid blue;
+      } */
+      /* p:nth-child(2n + 1) {
+        border: 1px solid blue;
+      } */
+      p:first-of-type {
         border: 1px solid blue;
       }
     </style>
   </head>
   <body>
+    <p>Para in body !</p>
     <div>
+      <h2>Heading !</h2>
       <p>Paragraph1 as child of div !</p>
       <p>Paragraph2 as child of div !</p>
       <p>Paragraph3 as child of div !</p>
+      <p>Paragraph4 as child of div !</p>
+      <p>Paragraph5 as child of div !</p>
     </div>
 
     <section>
