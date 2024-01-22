@@ -5,21 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script>
-      let promise = fetch("https://jsonplaceholder.typicode.com/postsss");
-      promise
-        .then(function (response) {
+      // let promise = fetch("https://jsonplaceholder.typicode.com/posts");
+      // promise
+      //   .then(function (response) {
+      //     if (response.ok) {
+      //       return response.json();
+      //     } else {
+      //       throw new Error("Something went wrong !");
+      //     }
+      //   })
+      //   .then(posts => console.log(posts))
+      // .then(() => console.log("Executed !"))
+      // .catch(() => console.log("Something went wrong !"))
+      // .then(()=>console.log("Will be printed !"));
+
+      async function fetchPosts() {
+        try {
+          let response = await fetch(
+            "https://jsonplaceholder.typicode.com/posts",
+          );
           if (response.ok) {
-            return response.json();
+            let posts = await response.json();
+            console.log(posts);
           } else {
             throw new Error("Something went wrong !");
           }
-        })
-        .then(
-          posts => console.log(posts),
-          function (err) {
-            console.log(err);
-          },
-        );
+        } catch (error) {
+          console.log(error.message);
+        }
+      }
+
+      fetchPosts();
     </script>
   </head>
   <body></body>
