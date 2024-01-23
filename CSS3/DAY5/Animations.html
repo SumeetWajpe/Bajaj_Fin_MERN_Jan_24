@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .animated {
+        height: 150px;
+        width: 150px;
+        padding: 10px;
+        border: 1px solid blue;
+        border-radius: 5px;
+        margin: 20px;
+        /* animation-name: simpleAnimation;
+        animation-duration: 10s; */
+        animation: simpleAnimation 5s;
+        position: relative;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+
+      @keyframes simpleAnimation {
+        /* from {
+          background-color: lightyellow;
+        }
+        to {
+          background-color: darkorange;
+        } */
+        25% {
+          background-color: lightcoral;
+          transform: scale(0.6);
+          left: 200px;
+        }
+        50% {
+          background-color: rgb(165, 240, 128);
+          transform: scale(1.6);
+          top: 200px;
+          left: 200px;
+        }
+        75% {
+          background-color: rgb(165, 240, 128);
+          transform: rotate(30deg);
+          left: 0px;
+        }
+        100% {
+          background-color: lightsalmon;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="animated">Animated Div !</div>
+  </body>
+</html>
