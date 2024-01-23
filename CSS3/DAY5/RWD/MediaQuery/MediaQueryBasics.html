@@ -11,28 +11,39 @@
         height: 100%;
       }
       .mdBreakpoint {
-        background-color: orange;
-        display: none;
-        
+        background-color: rgb(255, 235, 197);
+        width: 100%;
       }
       @media screen and (min-width: 576px) {
         body {
           background-color: rgb(209, 246, 106);
+        }
+        .mdBreakpoint {
+          width: 100%;
         }
       }
       @media screen and (min-width: 768px) {
         body {
           background-color: lightblue;
         }
-        .mdBreakpoint {
-          display: block;
+      }
+
+      /* @media screen and (max-width: 768px) {
+        body {
+          background-color: lightblue;
         }
       }
+       @media screen and (max-width: 576px) {
+        body {
+          background-color: rgb(209, 246, 106);
+        }
+        .mdBreakpoint {
+          width: 100%;
+        }
+      } */
     </style>
   </head>
   <body>
-    <div class="mdBreakpoint">
-      Visible only after tablet breakpoint is encountered !
-    </div>
+    <div class="mdBreakpoint">Understanding breakpoints !</div>
   </body>
 </html>
