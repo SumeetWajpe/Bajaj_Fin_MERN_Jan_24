@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: flex;
+        border: 2px solid black;
+      }
+      .box {
+        height: 100px;
+        width: 100px;
+        padding: 10px;
+      }
+      .box-1 {
+        background-color: rgb(164, 211, 252);
+        flex: 1 1 200px; /* flex-grow flex shrink flex-basis*/
+        /* flex-basis: 200px; */
+        /* flex-grow: 1; */
+        /* flex-shrink: 2; */
+      }
+      .box-2 {
+        background-color: rgb(105, 238, 223);
+        /* flex-grow: 1; */
+        /* flex-shrink: 3; */
+      }
+      .box-3 {
+        background-color: rgb(241, 225, 101);
+        /* flex-grow: 1; */
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container">
+      <div class="box box-1">1</div>
+      <div class="box box-2">2</div>
+      <div class="box box-3">3</div>
+    </section>
+  </body>
+</html>
