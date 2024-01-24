@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function StoreData() {
+        let txtCityName = document.querySelector("#txtCity").value;
+        let txtStateName = document.querySelector("#txtState").value;
+
+        // localStorage[txtCityName] = txtStateName;
+        // localStorage.setItem(txtCityName, txtStateName);
+
+        let cityInfo = { name: txtCityName, state: txtStateName };
+        // sessionStorage[txtCityName] = txtStateName;
+        localStorage[txtCityName] = cityInfo;
+      }
+
+      function RetreiveData() {
+        let txtCityName = document.querySelector("#txtCity").value;
+        console.log(localStorage[txtCityName]);
+        // console.log(localStorage.getItem(txtCityName));
+        // console.log(sessionStorage[txtCityName]);
+      }
+    </script>
+  </head>
+  <body>
+    <label for="txtCity">Enter City Name :</label>
+    <input type="text" id="txtCity" />
+    <br />
+    <label for="txtState">Enter State Name :</label>
+    <input type="text" id="txtState" />
+    <br />
+
+    <input type="button" value="Store" onclick="StoreData()" />
+    <input type="button" value="Retreive" onclick="RetreiveData()" />
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function HeavyLifting() {
+        var arr = [];
+        for (let i = 0; i < 100000; i++) {
+          arr[i] = [];
+          for (let j = 0; j < 5000; j++) {
+            arr[i][j] = i;
+          }
+        }
+        console.log(arr[2000][2000]);
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="HeavyLifting()">Do heavy Lifting !</button>
+    <button onclick="console.log('U Clicked !')">Click Me !</button>
+  </body>
+</html>
