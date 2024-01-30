@@ -1,4 +1,4 @@
-var axios = require("axios");
+var axios = require("axios"); // npm
 axios
   .get("https://jsonplaceholder.typicode.com/posts")
   .then(function (response) {
