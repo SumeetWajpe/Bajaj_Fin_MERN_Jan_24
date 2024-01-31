@@ -10,4 +10,9 @@ router.get("/:id", (req, res) => {
   const product = products.find(p => p.id == productId);
   res.json(product);
 });
+router.post("/newproduct", (req, res) => {
+  console.log("within new product api");
+  console.log(req.body);
+  res.send("success");
+});
 module.exports = router;

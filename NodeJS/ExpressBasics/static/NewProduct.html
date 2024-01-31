@@ -4,7 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="script.js"></script>
+    <script>
+      async function AddNewProduct(e) {
+        e.preventDefault();
+        // create new product
+        let newProduct = {
+          id: document.querySelector("#txtProductId").value,
+          title: document.querySelector("#txtProductTitle").value,
+          price: document.querySelector("#txtProductPrice").value,
+          rating: document.querySelector("#txtProductRating").value,
+          imageUrl: document.querySelector("#txtProductImageUrl").value,
+          likes: document.querySelector("#txtProductLikes").value,
+        };
+        // send data to server
+        await fetch("http://localhost:3000/products/newproduct", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newProduct),
+        });
+      }
+    </script>
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
@@ -45,7 +64,7 @@
     <main>
       <div class="row justify-content-center">
         <div class="col-md-6 border border-2">
-          <form class="row m-2 g-1">
+          <form class="row m-2 g-1" onsubmit="AddNewProduct(event)">
             <div class="col-md-4">
               <label>Id :</label>
             </div>
