@@ -6,13 +6,40 @@
     <title>Document</title>
     <script src="script.js"></script>
     <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
   </head>
-  <body>
-    <header class="header">
-      <h1>Products</h1>
-    </header>
-    <main>
-      <ul class="productList"></ul>
-    </main>
+  <body class="container">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark " >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Online Shopping</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="#">Pricing</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main class="productList row m-2 g-3"></main>
   </body>
 </html>
