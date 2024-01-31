@@ -12,7 +12,13 @@ router.get("/:id", (req, res) => {
 });
 router.post("/newproduct", (req, res) => {
   console.log("within new product api");
-  console.log(req.body);
-  res.send("success");
+  let newProduct = req.body;
+  products.push(newProduct); // adds a new product to products array
+  console.log(products.length);
+  res.status(201).json({
+    status: true,
+    msg: `${newProduct.title} added successfully !`,
+    err: null,
+  });
 });
 module.exports = router;

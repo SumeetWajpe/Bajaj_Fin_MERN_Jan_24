@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
     <script>
       async function AddNewProduct(e) {
         e.preventDefault();
@@ -17,11 +18,20 @@
           likes: document.querySelector("#txtProductLikes").value,
         };
         // send data to server
-        await fetch("http://localhost:3000/products/newproduct", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(newProduct),
-        });
+        let response = await fetch(
+          "http://localhost:3000/products/newproduct",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newProduct),
+          },
+        );
+        let message = await response.json();
+        if (message.status) {
+          let toastEl = document.querySelector("#successtoast");
+          let bootstrapToast = new bootstrap.Toast(toastEl);
+          bootstrapToast.show();
+        }
       }
     </script>
     <link rel="stylesheet" href="styles.css" />
@@ -30,6 +40,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
     />
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -110,6 +121,28 @@
             </div>
           </form>
         </div>
+      </div>
+      <div
+        class="toast-container position-absolute top-50 start-50 translate-middle-x"
+      >
+        <div
+          id="successtoast"
+          class="toast align-items-center text-bg-success"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          <div class="d-flex">
+            <div class="toast-body">Product Added successfully !</div>
+            <button
+              type="button"
+              class="btn-close me-2 m-auto"
+              data-bs-dismiss="toast"
+              aria-label="Close"
+            ></button>
+          </div>
+        </div>
+      </div>
       </div>
     </main>
   </body>
