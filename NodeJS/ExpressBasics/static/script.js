@@ -13,12 +13,17 @@ function DisplayProducts(products) {
     divWrapper.innerHTML += CreateProductItem(products[index]);
   }
 }
+
+function NavigateToProductDetails(id) {
+  window.location.href = "http://localhost:3000/products/details/" + id;
+}
 // Use document.createElement() instead
 function CreateProductItem(theProduct) {
   return ` <div class="col-md-3" id="${theProduct.id}">
           <div class="card border border-1 shadow p-3 mb-5 bg-body-tertiary rounded">
             <img
             height="250px"
+            onclick="NavigateToProductDetails(${theProduct.id})"
             width="350px"
               src="${theProduct.imageUrl}"
               class="card-img-top"

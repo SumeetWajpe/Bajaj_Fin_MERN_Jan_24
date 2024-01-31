@@ -1,8 +1,13 @@
 // import express from "express";
 const express = require("express");
 const app = express();
+const path = require("path");
 const port = 3000;
 const productsRouter = require("./routes/products.route.js");
+
+// view engine settings
+app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
 // middlewares
 app.use(express.static("static")); // express static middleware (adds static serving functionality to the app ex. .js / .css files)
 app.use(express.json()); // reads the payload from request and populates req.body

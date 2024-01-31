@@ -27,4 +27,12 @@ router.delete("/deleteproduct/:id", (req, res) => {
   products = products.filter(p => p.id !== productId);
   res.json({ msg: "Product deleted successfully !", status: true, err: null });
 });
+
+router.get("/details/:id", (req, res) => {
+  // find the product by id
+  let id = req.params.id;
+  let theProduct = products.find(p => p.id == id);
+  // pass the product to pug view
+  res.render("productdetails", { theProduct: theProduct });
+});
 module.exports = router;
