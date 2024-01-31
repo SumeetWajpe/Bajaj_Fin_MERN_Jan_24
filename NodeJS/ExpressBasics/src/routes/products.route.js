@@ -21,4 +21,10 @@ router.post("/newproduct", (req, res) => {
     err: null,
   });
 });
+
+router.delete("/deleteproduct/:id", (req, res) => {
+  let productId = +req.params.id;
+  products = products.filter(p => p.id !== productId);
+  res.json({ msg: "Product deleted successfully !", status: true, err: null });
+});
 module.exports = router;

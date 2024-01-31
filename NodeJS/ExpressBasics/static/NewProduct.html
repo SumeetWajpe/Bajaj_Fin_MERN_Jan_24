@@ -29,6 +29,8 @@
         let message = await response.json();
         if (message.status) {
           let toastEl = document.querySelector("#successtoast");
+          let toastMessageEl = document.querySelector(".toast-body");
+          toastMessageEl.innerHTML = message.msg;
           let bootstrapToast = new bootstrap.Toast(toastEl);
           bootstrapToast.show();
         }
@@ -142,7 +144,6 @@
             ></button>
           </div>
         </div>
-      </div>
       </div>
     </main>
   </body>

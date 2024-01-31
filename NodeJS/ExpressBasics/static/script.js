@@ -33,6 +33,9 @@ function CreateProductItem(theProduct) {
                <button type="button" class="btn btn-primary"><i class="fa-solid fa-thumbs-up"></i>${
                  theProduct.likes
                } </button>
+              <button type="button" class="btn btn-danger" aria-label="Delete" onclick="DeleteAProduct(${
+                theProduct.id
+              })"> <i class="fa-solid fa-trash"></i></button>
             
               </div>
           </div>
@@ -40,6 +43,27 @@ function CreateProductItem(theProduct) {
     `;
 }
 
+async function DeleteAProduct(theId) {
+  try {
+    let response = await fetch(
+      `http://localhost:3000/products/deleteproduct/${theId}`,
+      {
+        method: "DELETE",
+      },
+    );
+    let message = await response.json();
+    if (message.status) {
+      let productToBeDeleted = document.getElementById(`${theId}`);
+      productToBeDeleted.remove(); /// removes the elmeent from DOM !
+      let toastEl = document.querySelector("#successtoast");
+      let toastMessageEl = document.querySelector(".toast-body");
+      console.log(toastMessageEl.innerHTML);
+      toastMessageEl.innerHTML = message.msg;
+      let bootstrapToast = new bootstrap.Toast(toastEl);
+      bootstrapToast.show();
+    }
+  } catch (error) {}
+}
 function createRatings(theProduct) {
   let ratings = "";
   for (let index = 0; index < theProduct.rating; index++) {
