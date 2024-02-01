@@ -28,3 +28,8 @@ https://flexboxfroggy.com/
 # Accessibility Checklist
 
 https://www.a11yproject.com/checklist/
+
+npm install -g express-generator
+express --view=pug myapp
+cd myapp
+npm install
