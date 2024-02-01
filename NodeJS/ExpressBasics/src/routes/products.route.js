@@ -7,6 +7,7 @@ router.get("/", (req, res) => {
 
 // using routing parameter
 router.get("/:id", (req, res) => {
+  let productId = +req.params.id;
   const product = products.find(p => p.id == productId);
   res.json(product);
 });
@@ -24,15 +25,24 @@ router.post("/newproduct", (req, res) => {
 
 router.delete("/deleteproduct/:id", (req, res) => {
   let productId = +req.params.id;
-  products = products.filter(p => p.id !== productId);
-  res.json({ msg: "Product deleted successfully !", status: true, err: null });
+  if (productId) {
+    products = products.filter(p => p.id !== productId);
+    res.json({
+      msg: "Product deleted successfully !",
+      status: true,
+      err: null,
+    });
+  }
 });
 
 router.get("/details/:id", (req, res) => {
   // find the product by id
-  let id = req.params.id;
-  let theProduct = products.find(p => p.id == id);
-  // pass the product to pug view
-  res.render("productdetails", { theProduct: theProduct });
+  let id = +req.params.id;
+  if (id) {
+    let theProduct = products.find(p => p.id == id);
+    // pass the product to pug view
+    res.render("productdetails", { theProduct: theProduct });
+  }
 });
+
 module.exports = router;

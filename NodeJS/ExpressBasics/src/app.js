@@ -1,5 +1,6 @@
 // import express from "express";
 const express = require("express");
+const fs = require("fs");
 const app = express();
 const path = require("path");
 const port = 3000;
@@ -16,6 +17,30 @@ app.use("/products", productsRouter); // registering products router
 app.get("/", (req, res) => {
   //   res.send("<h1>Hello World!</h1>");
   res.sendFile("Index.html", { root: __dirname });
+});
+app.get("/video", (req, res) => {
+  console.log("Within video api");
+  // send the video in chunks
+  const range = req.headers.range;
+  console.log(range);
+  const videoPath = path.join(__dirname, "videos/shoes.mp4");
+
+  const videoSize = fs.statSync(videoPath).size;
+  // range
+  const CHUNK_SIZE = 10 ** 6; // 1 MB
+  const start = Number(range.replace(/\D/g, ""));
+  const end = Math.min(start + CHUNK_SIZE, videoSize - 1);
+
+  // headers
+  const headers = {
+    "Content-Range": `bytes ${start}-${end}/${videoSize}`,
+    "Accept-Ranges": "bytes",
+    "Content-Length": end - start + 1,
+    "Content-Type": "video/mp4",
+  };
+  res.writeHead(206, headers);
+  const videoStream = fs.createReadStream(videoPath, { start, end });
+  videoStream.pipe(res);
 });
 
 app.listen(port, () => {
