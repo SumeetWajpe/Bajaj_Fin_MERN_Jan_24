@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title= theProduct.title
+    link(href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet")
+  body
+    main(class="container")
+      div(class="row m-2")
+        div(class="col-md-9")
+          video(src="/video" controls width="100%")
+        div(class="col-md-3")
+          h1= theProduct.title
+          div= theProduct.description
