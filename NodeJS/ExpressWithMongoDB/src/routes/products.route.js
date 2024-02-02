@@ -22,7 +22,7 @@ router.post("/newproduct", async (req, res) => {
 
   //create
   let r = await productsModel.create(newProduct); // insert one or many records
-  console.log(r);
+
   res.status(201).json({
     status: true,
     msg: `${newProduct.title} added successfully !`,
@@ -30,10 +30,10 @@ router.post("/newproduct", async (req, res) => {
   });
 });
 
-router.delete("/deleteproduct/:id", (req, res) => {
+router.delete("/deleteproduct/:id", async (req, res) => {
   let productId = +req.params.id;
   if (productId) {
-    products = products.filter(p => p.id !== productId);
+    await productsModel.deleteOne({ id: productId });
     res.json({
       msg: "Product deleted successfully !",
       status: true,

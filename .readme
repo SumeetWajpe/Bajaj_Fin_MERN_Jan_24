@@ -29,7 +29,11 @@ https://flexboxfroggy.com/
 
 https://www.a11yproject.com/checklist/
 
+# For using Express Generator
 npm install -g express-generator
 express --view=pug myapp
 cd myapp
 npm install
+
+# MongoDb tools (Compass & mongo import,Mongo Shell)
+https://www.mongodb.com/try/download/database-tools
