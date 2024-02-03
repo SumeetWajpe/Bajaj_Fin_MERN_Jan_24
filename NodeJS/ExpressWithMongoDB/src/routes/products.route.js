@@ -48,7 +48,7 @@ router.get("/details/:id", (req, res) => {
   if (id) {
     let theProduct = products.find(p => p.id == id);
     // pass the product to pug view
-    res.render("productdetails", { theProduct: theProduct });
+    res.render("productdetails", { theProduct });
   }
 });
 
