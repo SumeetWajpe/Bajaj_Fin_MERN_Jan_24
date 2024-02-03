@@ -3,44 +3,35 @@
 //   sport: string;
 //   country: string;
 // }
-
 // let person: IPerson = {
 //   name: "Sachin",
 //   sport: "Cricket",
 //   xyz: 123,
 //   country: "INDIA",
 // };
-
 class Car {
-  private id: number;
-  public name: string;
-  speed: number;
-  protected carMake: string = "1983";
-  constructor(name: string = "", speed: number = 0) {
-    this.name = name;
-    this.speed = speed;
-  }
-  accelerate(): string {
-    return `The car ${this.name} is running @ ${this.speed} kmph !`;
-  }
+    constructor(name = "", speed = 0) {
+        this.carMake = "1983";
+        this.name = name;
+        this.speed = speed;
+    }
+    accelerate() {
+        return `The car ${this.name} is running @ ${this.speed} kmph !`;
+    }
 }
-
 let carObj = new Car();
-
 class JamesBondCar extends Car {
-  isArmed: boolean = false;
-  constructor(name: string, speed: number, isArmed: boolean) {
-    super(name, speed);
-    this.isArmed = isArmed;
-  }
-  accelerate(): string {
-    return super.accelerate() + "Is it armed ?" + this.isArmed;
-  }
+    constructor(name, speed, isArmed) {
+        super(name, speed);
+        this.isArmed = false;
+        this.isArmed = isArmed;
+    }
+    accelerate() {
+        return super.accelerate() + "Is it armed ?" + this.isArmed;
+    }
 }
-
 var jbc = new JamesBondCar("Aston Martin", 200, true);
 console.log(jbc.accelerate());
-
 // interface IPerson {
 //   name: string;
 //   sport: string;
@@ -48,7 +39,6 @@ console.log(jbc.accelerate());
 //   walk: () => void;
 //   talk?: () => void;
 // }
-
 // class Person implements IPerson {
 //   name: string;
 //   sport: string;
@@ -57,55 +47,39 @@ console.log(jbc.accelerate());
 //     console.log("Walking.. ");
 //   }
 // }
-
 // interface IPerson {
 //   name: string;
 //   country: string;
 //   walk: () => void;
 //   talk?: () => void;
 // }
-
 // interface IEmployee extends IPerson {
 //   salary: number;
 // }
-
 // class Emp implements IEmployee {}
-
 // use enums to restrict developer to choose from possible set of options
-enum Departments {
-  Finance = 10,
-  Accounts,
-  IT,
-  HR,
-}
-
-var d: Departments = Departments.Accounts;
+var Departments;
+(function (Departments) {
+    Departments[Departments["Finance"] = 10] = "Finance";
+    Departments[Departments["Accounts"] = 11] = "Accounts";
+    Departments[Departments["IT"] = 12] = "IT";
+    Departments[Departments["HR"] = 13] = "HR";
+})(Departments || (Departments = {}));
+var d = Departments.Accounts;
 // console.log(d); // outputs 11
 console.log(Departments[d]); // prints Accounts
 // class Emp {
 //   department: string;
 // }
 // Generics
-
-function Swap<T>(x: T, y: T) {
-  let temp: T = x;
-  x = y;
-  y = temp;
-  console.log(x, y);
+function Swap(x, y) {
+    let temp = x;
+    x = y;
+    y = temp;
+    console.log(x, y);
 }
-
-Swap<number>(10, 20);
-Swap<string>("X", "Y");
-
-class Point<T, V> {
-  x: T;
-  y: V;
+Swap(10, 20);
+Swap("X", "Y");
+class Point {
 }
-
-var point = new Point<string, number>();
-
-function Test(x) {
-  console.log(x);
-}
-
-Test(10);
+var point = new Point();
