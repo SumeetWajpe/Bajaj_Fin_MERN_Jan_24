@@ -85,3 +85,21 @@ console.log(Departments[d]); // prints Accounts
 // class Emp {
 //   department: string;
 // }
+// Generics
+
+function Swap<T>(x: T, y: T) {
+  let temp: T = x;
+  x = y;
+  y = temp;
+  console.log(x, y);
+}
+
+Swap<number>(10, 20);
+Swap<string>("X", "Y");
+
+class Point<T, V> {
+  x: T;
+  y: V;
+}
+
+var point = new Point<string, number>();

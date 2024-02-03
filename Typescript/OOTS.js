@@ -92,3 +92,18 @@ console.log(Departments[d]); // prints Accounts
 // class Emp {
 //   department: string;
 // }
+// Generics
+function Swap(x, y) {
+    var temp = x;
+    x = y;
+    y = temp;
+    console.log(x, y);
+}
+Swap(10, 20);
+Swap("X", "Y");
+var Point = /** @class */ (function () {
+    function Point() {
+    }
+    return Point;
+}());
+var point = new Point();
