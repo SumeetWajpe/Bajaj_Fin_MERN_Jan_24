@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ProductModel from "../../models/product.model";
+import Rating from "../rating/rating.component";
 
 type ProductPropType = {
   productdetails: ProductModel;
@@ -20,7 +21,7 @@ export default class Product extends Component<ProductPropType> {
             <div className="d-flex flex-wrap justify-content-between">
               <h5 className="card-title">{this.props.productdetails.title}</h5>
               <p className="card-text m-0">
-                {this.props.productdetails.rating}
+                <Rating noofstars={this.props.productdetails.rating} />
               </p>
             </div>
 
