@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .header {
+        border: 2px solid red;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.7.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/15.7.0/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+  </head>
+  <body>
+    <div class="app"></div>
+    <script type="text/jsx">
+
+        class Message extends React.Component{
+            render(){
+                return <div>
+                    <img src={this.props.imagesrc} alt={this.props.message} height="100px" width="150px" />
+                    <h1>{this.props.message}</h1>
+                <h3>From : {this.props.from}</h3>
+                <h3>To : {this.props.to}</h3>
+                </div>
+
+            }
+        }
+
+        class BasicComponent extends React.Component{
+            render(){
+                return <Message message="Hello !" from="John" to="Carter" 
+                imagesrc="https://basicappleguy.com/s/HelloLight_Mac.png"/>
+
+            }
+        }
+
+        let basicCompInstance =
+            <BasicComponent  />;
+
+
+      ReactDOM.render(basicCompInstance, document.querySelector(".app"));
+    </script>
+  </body>
+</html>
