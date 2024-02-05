@@ -1,10 +1,9 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ListOfProducts from "../listofproducts/listofproduct.component";
 
-class App extends React.Component{
+class App extends React.Component {
   render(): React.ReactNode {
-    return 
+    return <ListOfProducts />;
   }
 }
 
