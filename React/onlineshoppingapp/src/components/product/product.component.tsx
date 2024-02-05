@@ -4,9 +4,18 @@ import Rating from "../rating/rating.component";
 
 type ProductPropType = {
   productdetails: ProductModel;
+  DeleteAProduct: (id: number) => void;
 };
 
 export default class Product extends Component<ProductPropType> {
+  state = { currLikes: this.props.productdetails.likes };
+  IncrementLikes(): void {
+    // console.log("Within increment likes");
+    // console.log(this);
+    // this.props.productdetails.likes += 1; // props are readonly for UI
+    // this.state.currLikes += 1; // state is immutable
+    this.setState({ currLikes: this.state.currLikes + 1 });
+  }
   render() {
     return (
       <div className="col-sm-6 col-md-4 col-lg-3">
@@ -20,17 +29,32 @@ export default class Product extends Component<ProductPropType> {
           <div className="card-body p-2">
             <div className="d-flex flex-wrap justify-content-between">
               <h5 className="card-title">{this.props.productdetails.title}</h5>
-              <p className="card-text m-0">
-                <Rating noofstars={this.props.productdetails.rating} />
-              </p>
+              <div className="card-text m-0">
+                <Rating
+                  noofstars={this.props.productdetails.rating}
+                  color="orange"
+                />
+              </div>
             </div>
 
             <p className="card-text "> ₹.{this.props.productdetails.price}</p>
 
             <div className="d-flex flex-wrap">
-              <button className="btn btn-primary text-light">
+              <button
+                className="btn btn-primary"
+                onClick={() => this.IncrementLikes()}
+              >
                 <i className="fa-solid fa-thumbs-up"></i>{" "}
-                {this.props.productdetails.likes}
+                {/* {this.props.productdetails.likes} */}
+                {this.state.currLikes}
+              </button>
+              <button
+                className="btn btn-danger mx-1"
+                onClick={() =>
+                  this.props.DeleteAProduct(this.props.productdetails.id)
+                }
+              >
+                <i className="fa-solid fa-trash"></i>
               </button>
             </div>
           </div>
