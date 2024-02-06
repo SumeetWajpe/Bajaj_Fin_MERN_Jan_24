@@ -9,6 +9,12 @@ type ProductPropType = {
 
 export default class Product extends Component<ProductPropType> {
   state = { currLikes: this.props.productdetails.likes, isFavourite: false };
+  componentWillMount(): void {
+    // console.log("Within componentWillMount");
+  }
+  componentDidMount(): void {
+    // console.log("Within componentDidMount");
+  }
   IncrementLikes(): void {
     // console.log("Within increment likes");
     // console.log(this);
@@ -17,10 +23,8 @@ export default class Product extends Component<ProductPropType> {
     this.setState({ currLikes: this.state.currLikes + 1 });
   }
 
-  ChangeIsFav() {
-    this.setState({ isFavourite: !this.state.isFavourite });
-  }
   render() {
+    // console.log("Render");
     return (
       <div className="col-sm-6 col-md-4 col-lg-3">
         <div className="card" style={{ boxShadow: "3px 3px 5px gray" }}>
@@ -62,7 +66,9 @@ export default class Product extends Component<ProductPropType> {
               </button>
               <button
                 className="btn btn-outline-warning"
-                onClick={() => this.ChangeIsFav()}
+                onClick={() =>
+                  this.setState({ isFavourite: !this.state.isFavourite })
+                }
               >
                 {this.state.isFavourite === false ? (
                   <i className="fa-regular fa-heart"></i>
@@ -75,5 +81,25 @@ export default class Product extends Component<ProductPropType> {
         </div>
       </div>
     );
+  }
+
+  componentWillUpdate(
+    nextProps: Readonly<ProductPropType>,
+    nextState: Readonly<{}>,
+    nextContext: any,
+  ): void {
+    // console.log("Within Component Will Update");
+  }
+
+  componentDidUpdate(
+    prevProps: Readonly<ProductPropType>,
+    prevState: Readonly<{}>,
+    snapshot?: any,
+  ): void {
+    // console.log("Within Component Did Update");
+  }
+
+  componentWillUnmount(): void {
+    console.log("componentWillUnmount");
   }
 }

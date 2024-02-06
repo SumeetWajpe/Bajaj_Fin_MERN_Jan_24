@@ -14,15 +14,16 @@ https://www.youtube.com/watch?v=8aGhZQkoFbQ
 
 https://css-tricks.com/specifics-on-css-specificity/
 
-
 # CSS Selectors
 
 https://www.w3.org/TR/2018/REC-selectors-3-20181106/
 
 # Flexbox CSSTricks
+
 https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 
 # Flexbox
+
 https://flexboxfroggy.com/
 
 # Accessibility Checklist
@@ -30,10 +31,20 @@ https://flexboxfroggy.com/
 https://www.a11yproject.com/checklist/
 
 # For using Express Generator
+
 npm install -g express-generator
 express --view=pug myapp
 cd myapp
 npm install
 
 # MongoDb tools (Compass & mongo import,Mongo Shell)
+
 https://www.mongodb.com/try/download/database-tools
+
+# React Diff Algorithm
+
+https://legacy.reactjs.org/docs/reconciliation.html
+
+# Keys
+
+https://legacy.reactjs.org/docs/lists-and-keys.html#gatsby-focus-wrapper
