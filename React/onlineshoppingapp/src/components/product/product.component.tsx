@@ -8,13 +8,17 @@ type ProductPropType = {
 };
 
 export default class Product extends Component<ProductPropType> {
-  state = { currLikes: this.props.productdetails.likes };
+  state = { currLikes: this.props.productdetails.likes, isFavourite: false };
   IncrementLikes(): void {
     // console.log("Within increment likes");
     // console.log(this);
     // this.props.productdetails.likes += 1; // props are readonly for UI
     // this.state.currLikes += 1; // state is immutable
     this.setState({ currLikes: this.state.currLikes + 1 });
+  }
+
+  ChangeIsFav() {
+    this.setState({ isFavourite: !this.state.isFavourite });
   }
   render() {
     return (
@@ -39,7 +43,7 @@ export default class Product extends Component<ProductPropType> {
 
             <p className="card-text "> ₹.{this.props.productdetails.price}</p>
 
-            <div className="d-flex flex-wrap">
+            <div className="d-flex flex-wrap align-items-center">
               <button
                 className="btn btn-primary"
                 onClick={() => this.IncrementLikes()}
@@ -55,6 +59,16 @@ export default class Product extends Component<ProductPropType> {
                 }
               >
                 <i className="fa-solid fa-trash"></i>
+              </button>
+              <button
+                className="btn btn-outline-warning"
+                onClick={() => this.ChangeIsFav()}
+              >
+                {this.state.isFavourite === false ? (
+                  <i className="fa-regular fa-heart"></i>
+                ) : (
+                  <i className="fa-solid fa-heart"></i>
+                )}
               </button>
             </div>
           </div>
