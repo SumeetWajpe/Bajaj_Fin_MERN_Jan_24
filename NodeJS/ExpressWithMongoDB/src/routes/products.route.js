@@ -42,13 +42,21 @@ router.delete("/deleteproduct/:id", async (req, res) => {
   }
 });
 
-router.get("/details/:id", (req, res) => {
+// router.get("/details/:id", (req, res) => {
+//   // find the product by id
+//   let id = +req.params.id;
+//   if (id) {
+//     let theProduct = products.find(p => p.id == id);
+//     // pass the product to pug view
+//     res.render("productdetails", { theProduct });
+//   }
+// });
+router.get("/details/:id", async (req, res) => {
   // find the product by id
   let id = +req.params.id;
   if (id) {
-    let theProduct = products.find(p => p.id == id);
-    // pass the product to pug view
-    res.render("productdetails", { theProduct });
+    let theProduct = await productsModel.findOne({ id });
+    res.json(theProduct);
   }
 });
 

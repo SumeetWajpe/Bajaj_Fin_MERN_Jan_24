@@ -14,10 +14,10 @@ const Posts: React.FC = () => {
       <header>
         <h1>Posts</h1>
       </header>
-      <ul>
+      <ul className="list-group">
         {posts.map((p: any) => (
-          <li>
-            <Link to="/postdetails">{p.title}</Link>
+          <li className="list-group-item">
+            <Link to={`/postdetails/${p.id}`}>{p.title}</Link>
           </li>
         ))}
       </ul>

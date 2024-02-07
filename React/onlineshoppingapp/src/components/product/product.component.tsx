@@ -1,6 +1,7 @@
 import React, { Component, useState } from "react";
 import ProductModel from "../../models/product.model";
 import Rating from "../rating/rating.component";
+import { Link } from "react-router-dom";
 
 type ProductPropType = {
   productdetails: ProductModel;
@@ -16,12 +17,14 @@ const Product: React.FC<ProductPropType> = ({
   return (
     <div className="col-sm-6 col-md-4 col-lg-3">
       <div className="card" style={{ boxShadow: "3px 3px 5px gray" }}>
-        <img
-          src={productdetails.imageUrl}
-          alt={productdetails.title}
-          className="card-img-top rounded-0"
-          height="200px"
-        />
+        <Link to={"/productdetails/" + productdetails.id}>
+          <img
+            src={productdetails.imageUrl}
+            alt={productdetails.title}
+            className="card-img-top rounded-0"
+            height="200px"
+          />
+        </Link>
         <div className="card-body p-2">
           <div className="d-flex flex-wrap justify-content-between">
             <h5 className="card-title">{productdetails.title}</h5>

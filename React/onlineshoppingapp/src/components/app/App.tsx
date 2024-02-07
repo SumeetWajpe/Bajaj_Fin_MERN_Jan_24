@@ -5,6 +5,7 @@ import GetPostById from "../posts/getpostbyid.component";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Navbar from "../navbar/navbar.component";
 import PostDetails from "../postdetails/postdetails.component";
+import ProductDetails from "../productdetails/product.details";
 
 const App = () => {
   return (
@@ -15,8 +16,13 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<ListOfProducts />}></Route>
+          <Route
+            path="/productdetails/:id"
+            element={<ProductDetails />}
+          ></Route>
+
           <Route path="/posts" element={<Posts />}></Route>
-          <Route path="/postdetails" element={<PostDetails />}></Route>
+          <Route path="/postdetails/:id" element={<PostDetails />}></Route>
         </Routes>
       </BrowserRouter>
     </>

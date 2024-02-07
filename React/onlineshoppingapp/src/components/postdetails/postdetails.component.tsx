@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const PostDetails = () => {
-  return <div>PostDetails</div>;
+  const { id } = useParams();
+  useEffect(()=>{
+
+  });
+  return <div>PostDetails for {id}</div>;
 };
 
 export default PostDetails;
