@@ -30,15 +30,27 @@ const GetPostById: React.FC = () => {
   //       .then(res => res.json())
   //       .then(post => setThePost(post));
   //   }, [inputPostId]);
+  // using async awit
+  //   useEffect(() => {
+  //     async function GetPost() {
+  //       let res = await fetch(
+  //         `https://jsonplaceholder.typicode.com/posts/${inputPostId}`,
+  //       );
+  //       let post: PostModel = await res.json();
+  //       setThePost(post);
+  //     }
+  //     GetPost();
+  //   }, [inputPostId]);
+
+  // using IIIFE
   useEffect(() => {
-    async function GetPost() {
+    (async () => {
       let res = await fetch(
         `https://jsonplaceholder.typicode.com/posts/${inputPostId}`,
       );
       let post: PostModel = await res.json();
       setThePost(post);
-    }
-    GetPost();
+    })();
   }, [inputPostId]);
   return (
     <div>

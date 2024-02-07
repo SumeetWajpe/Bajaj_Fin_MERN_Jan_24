@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Posts: React.FC = () => {
   let [posts, setPosts] = useState([]);
@@ -15,7 +16,9 @@ const Posts: React.FC = () => {
       </header>
       <ul>
         {posts.map((p: any) => (
-          <li>{p.title}</li>
+          <li>
+            <Link to="/postdetails">{p.title}</Link>
+          </li>
         ))}
       </ul>
     </div>
