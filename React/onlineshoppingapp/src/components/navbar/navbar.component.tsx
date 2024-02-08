@@ -27,11 +27,11 @@ export default function Navbar() {
                   Products
                 </Link>
               </li>
-              {/* <li className="nav-item">
+              <li className="nav-item">
                 <Link className="nav-link" to="/newproduct">
                   Add New Product
                 </Link>
-              </li> */}
+              </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/posts">
                   Posts
