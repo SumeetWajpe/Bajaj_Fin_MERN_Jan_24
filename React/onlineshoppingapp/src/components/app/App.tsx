@@ -7,6 +7,9 @@ import Navbar from "../navbar/navbar.component";
 import PostDetails from "../postdetails/postdetails.component";
 import ProductDetails from "../productdetails/product.details";
 import NewProduct from "../newproduct/newproduct.component";
+import NewProductWithHookForm from "../newproduct/newProduct_hookform.component";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
@@ -24,8 +27,20 @@ const App = () => {
 
           <Route path="/posts" element={<Posts />}></Route>
           <Route path="/postdetails/:id" element={<PostDetails />}></Route>
-          <Route path="/newproduct" element={<NewProduct />} />
+          {/* <Route path="/newproduct" element={<NewProduct />} /> */}
+          <Route path="/newproduct" element={<NewProductWithHookForm />} />
         </Routes>
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          draggable
+          theme="light"
+        />
+        <ToastContainer />
       </BrowserRouter>
     </>
   );
