@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ProductModel from "../../models/product.model";
 import { useParams } from "react-router-dom";
+import Rating from "../rating/rating.component";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -11,18 +12,27 @@ const ProductDetails = () => {
       let product: ProductModel = await res.json();
       setProduct(product);
     })();
-  });
+  }, []);
   return (
     <div>
       <header>
         <h1>Product Details</h1>
       </header>
-      <main>
-        <p>Id : {product?.id}</p>
-        <p>Likes : {product?.likes}</p>
-        <p>Price : {product?.price}</p>
-        <p>Description : {product?.description}</p>
-      </main>
+
+      <div className="row m-2">
+        <div className="col-md-9">
+          <video
+            src="http://localhost:3500/video"
+            controls
+            width="100%"
+          ></video>
+        </div>
+        <div className="col-md-3">
+          <h1>{product?.title}</h1>
+          <Rating noofstars={product?.rating || 0} color="orange" />
+          <p>{product?.description}</p>
+        </div>
+      </div>
     </div>
   );
 };
