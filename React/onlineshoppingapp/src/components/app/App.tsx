@@ -2,7 +2,7 @@ import React from "react";
 import ListOfProducts from "../listofproducts/listofproduct.component";
 import Posts from "../posts/posts.component";
 import GetPostById from "../posts/getpostbyid.component";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import Navbar from "../navbar/navbar.component";
 import PostDetails from "../postdetails/postdetails.component";
 import ProductDetails from "../productdetails/product.details";
@@ -29,6 +29,17 @@ const App = () => {
           <Route path="/postdetails/:id" element={<PostDetails />}></Route>
           {/* <Route path="/newproduct" element={<NewProduct />} /> */}
           <Route path="/newproduct" element={<NewProductWithHookForm />} />
+          {/* <Route
+            path="*"
+            element={
+              <img
+                src="https://admiral.digital/wp-content/uploads/2023/08/404_page-not-found.png"
+                alt="Page Not found"
+                width="1000px"
+              />
+            }
+          /> */}
+          <Route path="*" element={<Navigate to="/" />}></Route>
         </Routes>
         <ToastContainer
           position="top-right"

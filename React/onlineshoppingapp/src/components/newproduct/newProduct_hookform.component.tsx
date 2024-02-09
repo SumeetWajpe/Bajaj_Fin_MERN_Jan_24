@@ -146,7 +146,7 @@ const NewProductWithHookForm = () => {
 
           <div className="col-md-8">
             <textarea
-              id=""
+              className="form-control"
               cols={45}
               rows={5}
               {...register("ProductDesc")}
@@ -158,7 +158,6 @@ const NewProductWithHookForm = () => {
             </div>
           </div>
         </form>
-        
       </div>
     </div>
   );
