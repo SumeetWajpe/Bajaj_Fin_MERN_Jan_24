@@ -30,6 +30,7 @@ const ProductDetails = () => {
         <div className="col-md-3">
           <h1>{product?.title}</h1>
           <Rating noofstars={product?.rating || 0} color="orange" />
+          <p>{product?.likes}</p>
           <p>{product?.description}</p>
         </div>
       </div>

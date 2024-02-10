@@ -1,13 +1,19 @@
 import React, { Component, useState } from "react";
 import ProductModel from "../../models/product.model";
 import Rating from "../rating/rating.component";
+import { useDispatch } from "react-redux";
+import {
+  deleteAProduct,
+  incrementLikes,
+} from "../../redux/reducers/products.reducer";
+import { addToCart } from "../../redux/reducers/cart.reducer";
 
 type ProductPropType = {
   productdetails: ProductModel;
 };
 
 const Product: React.FC<ProductPropType> = ({ productdetails }) => {
-  const [currLikes, setCurrLikes] = useState<number>(productdetails.likes);
+  const dispatch = useDispatch();
   const [isFavourite, setISFavourite] = useState<boolean>(false);
   return (
     <div className="col-sm-6 col-md-4 col-lg-3">
@@ -31,13 +37,14 @@ const Product: React.FC<ProductPropType> = ({ productdetails }) => {
           <div className="d-flex flex-wrap align-items-center">
             <button
               className="btn btn-primary"
-              onClick={() => setCurrLikes(currLikes + 1)}
+              onClick={() => dispatch(incrementLikes(productdetails.id))}
             >
-              <i className="fa-solid fa-thumbs-up"></i>{" "}
-              {/* {this.props.productdetails.likes} */}
-              {currLikes}
+              <i className="fa-solid fa-thumbs-up"></i> {productdetails.likes}
             </button>
-            <button className="btn btn-danger mx-1">
+            <button
+              className="btn btn-danger mx-1"
+              onClick={() => dispatch(deleteAProduct(productdetails.id))}
+            >
               <i className="fa-solid fa-trash"></i>
             </button>
             <button
@@ -50,6 +57,18 @@ const Product: React.FC<ProductPropType> = ({ productdetails }) => {
                 <i className="fa-solid fa-heart"></i>
               )}
             </button>
+            <div className="d-flex m-2 p-2 border border-secondary">
+              <input
+                type="checkbox"
+                id="chkAddToCart"
+                onInput={(e: any) => {
+                  if (e.target.checked) {
+                    dispatch(addToCart(productdetails));
+                  }
+                }}
+              />{" "}
+              <label htmlFor="chkAddToCart">Add to Cart</label>
+            </div>
           </div>
         </div>
       </div>

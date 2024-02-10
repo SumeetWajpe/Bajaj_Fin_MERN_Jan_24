@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import ProductModel from "../../models/product.model";
 
 type ProductsState = {
@@ -67,16 +67,23 @@ const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
-    incrementLikes: (store, action) => {
-      console.log("Within IncrementLikes reducer !");
+    incrementLikes: (store, action: PayloadAction<number>) => {
+      //   console.log("Within IncrementLikes reducer - ", action.payload);
+      let productId: number = action.payload;
+      let index = store.products.findIndex(p => p.id === productId);
+      // change the likes of the existing product
+      store.products[index].likes++;
       return store; // update the store & return
     },
-    deleteAProduct: (store, action) => {
-      console.log("Within deleteAProduct reducer !");
+    deleteAProduct: (store, action: PayloadAction<number>) => {
+      //   console.log("Within deleteAProduct reducer !");
+      let productId: number = action.payload;
+
+      store.products = store.products.filter(p => p.id !== productId);
       return store;
     },
   },
 });
 
-export const { incrementLikes } = productsSlice.actions;
+export const { incrementLikes,deleteAProduct } = productsSlice.actions;
 export default productsSlice.reducer;
