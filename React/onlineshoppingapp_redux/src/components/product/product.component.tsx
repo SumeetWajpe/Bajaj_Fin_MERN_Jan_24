@@ -6,7 +6,7 @@ import {
   deleteAProduct,
   incrementLikes,
 } from "../../redux/reducers/products.reducer";
-import { addToCart } from "../../redux/reducers/cart.reducer";
+import { addToCart, removeFromCart } from "../../redux/reducers/cart.reducer";
 
 type ProductPropType = {
   productdetails: ProductModel;
@@ -64,6 +64,8 @@ const Product: React.FC<ProductPropType> = ({ productdetails }) => {
                 onInput={(e: any) => {
                   if (e.target.checked) {
                     dispatch(addToCart(productdetails));
+                  } else if (e.target.checked == false) {
+                    dispatch(removeFromCart(productdetails.id));
                   }
                 }}
               />{" "}

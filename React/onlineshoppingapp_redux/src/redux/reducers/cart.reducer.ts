@@ -12,10 +12,11 @@ const cartSlice = createSlice({
       return store;
     },
     removeFromCart: (store: ProductModel[], action: PayloadAction<number>) => {
+      store = store.filter(p => p.id == action.payload);
       return store;
     },
   },
 });
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, removeFromCart } = cartSlice.actions;
 export default cartSlice.reducer;
