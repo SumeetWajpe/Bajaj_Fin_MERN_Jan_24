@@ -50,8 +50,12 @@ const productsSlice = createSlice({
       fetchAllProducts.fulfilled,
       (store: ProductsState, action: PayloadAction<ProductModel[]>) => {
         // store.products.push(...action.payload);
-        store.products = action.payload;
-        return store;
+        if (action.payload.length > 0) {
+          store.products = action.payload;
+          return store;
+        } else {
+          return store;
+        }
       },
     );
   },

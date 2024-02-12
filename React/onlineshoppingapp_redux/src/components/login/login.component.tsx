@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { AppDispatch } from "../../redux/store/store";
+import { setUserLoggedIn } from "../../redux/reducers/auth.reducer";
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
+  const [username, setUsername] = useState<string>("");
   return (
     <div className="row justify-content-center">
       <form
@@ -15,6 +20,13 @@ const Login = () => {
               if (msg.success) {
                 // use redux to store token & user auth status (best use context API)
                 sessionStorage["token"] = msg.token;
+                dispatch(
+                  setUserLoggedIn({
+                    isUserAuthenticated: true,
+                    token: msg.token,
+                    username,
+                  }),
+                );
                 navigate("/dashboard");
               }
             });
@@ -29,6 +41,7 @@ const Login = () => {
             aria-describedby="emailHelp"
             placeholder="Enter email"
             required
+            onInput={(e: any) => setUsername(e.target.value)}
           />
           <small id="emailHelp" className="form-text text-muted">
             We'll never share your email with anyone else.
