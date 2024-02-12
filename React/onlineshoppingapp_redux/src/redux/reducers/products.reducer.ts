@@ -15,8 +15,12 @@ const initialState: ProductsState = {
 
 export const fetchAllProducts = createAsyncThunk(
   "products/fetchAllProducts",
-  async () => {
-    const response = await fetch("http://localhost:3500/products");
+  async (token: string) => {
+    const response = await fetch("http://localhost:3500/products", {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
     return await response.json();
   },
 );

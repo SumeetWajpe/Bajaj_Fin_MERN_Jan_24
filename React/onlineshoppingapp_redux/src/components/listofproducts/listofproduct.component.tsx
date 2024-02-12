@@ -17,7 +17,7 @@ const ListOfProducts: React.FC = () => {
   ));
 
   useEffect(() => {
-    dispatch(fetchAllProducts());
+    dispatch(fetchAllProducts(sessionStorage["token"]));
   }, []);
   return (
     <div className="row g-3">

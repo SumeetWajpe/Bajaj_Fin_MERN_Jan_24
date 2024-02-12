@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 var cors = require("cors");
 const port = 3500;
 const productsRouter = require("./routes/products.route.js");
+const authRouter = require("./routes/auth.route.js");
 
 mongoose.connect("mongodb://localhost:27017/onlineshoppingdb");
 
@@ -21,6 +22,7 @@ app.use(express.static("static")); // express static middleware (adds static ser
 app.use(express.json()); // reads the payload from request and populates req.body
 // mapping of routes
 app.use("/products", productsRouter); // registering products router
+app.use("/auth", authRouter);
 app.get("/", (req, res) => {
   //   res.send("<h1>Hello World!</h1>");
   res.sendFile("Index.html", { root: __dirname });
